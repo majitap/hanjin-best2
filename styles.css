@@ -1,26 +1,42 @@
 /*
-  한진개발 (Hanjin Development) — Big, Bold, Ultra-Legible Korean B2B Design
-  Uses self-hosted NanumSquare Neo (Rg 400 / Bd 700 / Eb 800) + Large 2x2 High-Contrast Bento Cards.
+  한진개발 (Hanjin Development) — Naver MaruBuri (마루 부리) Serif Edition
+  Uses self-hosted Naver MaruBuri (Regular 400 / SemiBold 600 / Bold 700-800)
+  for a classic, authoritative, and trustworthy Korean B2B impression.
 */
 @font-face {
-  font-family: 'NanumSquareNeo';
+  font-family: 'MaruBuri';
   font-weight: 400;
   font-display: swap;
-  src: url('assets/fonts/NanumSquareNeoTTF-bRg.woff2') format('woff2');
+  src:
+    url('assets/fonts/MaruBuri-Regular.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'NanumSquareNeo';
+  font-family: 'MaruBuri';
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('assets/fonts/MaruBuri-SemiBold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
   font-weight: 700;
   font-display: swap;
-  src: url('assets/fonts/NanumSquareNeoTTF-cBd.woff2') format('woff2');
+  src:
+    url('assets/fonts/MaruBuri-Bold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'NanumSquareNeo';
+  font-family: 'MaruBuri';
   font-weight: 800;
   font-display: swap;
-  src: url('assets/fonts/NanumSquareNeoTTF-dEb.woff2') format('woff2');
+  src:
+    url('assets/fonts/MaruBuri-Bold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2') format('woff2');
 }
 
 :root {
@@ -41,7 +57,7 @@
   --gray-tile-hover: #e9edf3;
   --border: #e4e8ee;
   --border-strong: #cfd6df;
-  --font: 'NanumSquareNeo', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font: 'MaruBuri', 'AppleMyungjo', 'Batang', serif;
   --container: 1200px;
   --gutter: 32px;
   --header-h: 80px;
