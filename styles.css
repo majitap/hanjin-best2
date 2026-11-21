@@ -1,15 +1,46 @@
 /*
-  한진개발 (Hanjin Development) — Naver 나눔명조옛한글 (NanumMyeongjoYetHangul) Edition
-  Uses self-hosted & Naver CDN NanumMyeongjoYetHangul for classic, traditional Korean serif trust.
+  한진개발 (Hanjin Development) — Naver MaruBuri SemiBold Edition
+  Uses MaruBuri-Regular (400) for body copy and MaruBuri-SemiBold (600/700/800)
+  — one step lighter than the heaviest MaruBuri-Bold — for all large & medium headings.
 */
 @font-face {
-  font-family: 'NanumMyeongjoYetHangul';
+  font-family: 'MaruBuri';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src:
-    url('assets/fonts/NanumMyeongjo-YetHangul.woff2') format('woff2'),
-    url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjoYetHangul/NanumMyeongjo-YetHangul.woff2') format('woff2');
+    url('assets/fonts/MaruBuri-Regular.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    url('assets/fonts/MaruBuri-SemiBold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('assets/fonts/MaruBuri-SemiBold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MaruBuri';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src:
+    url('assets/fonts/MaruBuri-SemiBold.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2') format('woff2');
 }
 
 :root {
@@ -30,7 +61,7 @@
   --gray-tile-hover: #e9edf3;
   --border: #e4e8ee;
   --border-strong: #cfd6df;
-  --font: 'NanumMyeongjoYetHangul', 'Nanum Myeongjo', 'AppleMyungjo', 'Batang', serif;
+  --font: 'MaruBuri', 'AppleMyungjo', 'Batang', serif;
   --container: 1200px;
   --gutter: 32px;
   --header-h: 80px;
@@ -58,9 +89,10 @@ body {
   color: var(--ink);
   font-family: var(--font);
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.68;
   font-weight: 400;
-  letter-spacing: -0.02em;
+  font-synthesis: none;
+  letter-spacing: -0.018em;
   word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
