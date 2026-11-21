@@ -1,10 +1,7 @@
 /*
-  한진개발 (Hanjin Development) — Modern B2B Industrial Template Style
-  Inspired by the Global Logistics Business layout:
+  한진개발 (Hanjin Development) — Modern B2B Industrial Template Style (Live Video Edition)
   Deep cobalt sky, vibrant safety orange (#F47D16), crisp white canvas,
-  bold geometric typography, 3-column bordered stats box, full-width visual banner,
-  2-column split with bottom metrics, light-gray capability tiles, and
-  vibrant orange CTA block with diagonal-chamfered photo frame.
+  4 seamless HD construction site videos (Hero, Aerial Overview, Strengths Split, Orange CTA).
 */
 :root {
   --orange: #f47d16;
@@ -97,7 +94,8 @@ ul {
   list-style: none;
 }
 
-img {
+img,
+video {
   display: block;
   max-width: 100%;
   height: auto;
@@ -149,6 +147,42 @@ svg {
 .container {
   width: min(var(--container), calc(100% - var(--gutter) * 2));
   margin-inline: auto;
+}
+
+/* Scroll-Reveal Motion */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Live Pulsing Indicator Dot */
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-right: 8px;
+  box-shadow: 0 0 0 0 rgba(244, 125, 22, 0.7);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 125, 22, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(244, 125, 22, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 125, 22, 0);
+  }
 }
 
 /* ==========================================================================
@@ -464,7 +498,7 @@ body.menu-open .site-header {
 }
 
 /* ==========================================================================
-   1. Hero Section (Matches Image 1 — Deep Cobalt Sky + Orange Structures)
+   1. Hero Section (Live Crane Video + Deep Cobalt Sky Overlay)
    ========================================================================== */
 .hero {
   position: relative;
@@ -485,11 +519,12 @@ body.menu-open .site-header {
   pointer-events: none;
 }
 
-.hero-bg img {
+.hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: right center;
+  filter: saturate(1.15) contrast(1.06);
 }
 
 .hero-overlay {
@@ -497,9 +532,9 @@ body.menu-open .site-header {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(13, 47, 96, 0.88) 0%,
-    rgba(15, 58, 116, 0.62) 45%,
-    rgba(15, 58, 116, 0.08) 78%
+    rgba(11, 45, 96, 0.88) 0%,
+    rgba(15, 58, 120, 0.64) 46%,
+    rgba(15, 58, 120, 0.16) 100%
   );
 }
 
@@ -511,6 +546,39 @@ body.menu-open .site-header {
 
 .hero-content {
   max-width: 580px;
+}
+
+@keyframes hero-settle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero h1 span,
+.hero-description,
+.hero-actions {
+  animation: hero-settle 0.85s var(--ease) both;
+}
+
+.hero h1 span:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hero h1 span:nth-child(2) {
+  animation-delay: 0.22s;
+}
+.hero h1 span:nth-child(3) {
+  animation-delay: 0.34s;
+}
+.hero-description {
+  animation-delay: 0.48s;
+}
+.hero-actions {
+  animation-delay: 0.62s;
 }
 
 .hero h1 {
@@ -530,7 +598,7 @@ body.menu-open .site-header {
   font-size: 16px;
   line-height: 1.7;
   font-weight: 450;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-actions {
@@ -541,8 +609,31 @@ body.menu-open .site-header {
   margin-top: 36px;
 }
 
+.video-toggle {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 28px;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--white);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.video-toggle:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
 /* ==========================================================================
-   2. Pioneer Intro + 3-Column Stats + Aerial Banner + 2-Column Split
+   2. Pioneer Intro + 3-Column Stats + Aerial Video Banner + 2-Column Video Split
    ========================================================================== */
 .section {
   padding-block: 108px;
@@ -592,7 +683,7 @@ body.menu-open .site-header {
   color: var(--ink-body);
 }
 
-/* 3-Column Bordered Stats Box (Matches Image 1 Bottom & Image 2 Top) */
+/* 3-Column Bordered Stats Box */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -641,7 +732,7 @@ body.menu-open .site-header {
   color: var(--ink-muted);
 }
 
-/* Full-Container Aerial Feature Banner (Matches Image 2 Middle) */
+/* Full-Container Aerial Feature Video Banner (Matches Image 2 Middle) */
 .overview-banner {
   position: relative;
   min-height: 500px;
@@ -653,12 +744,13 @@ body.menu-open .site-header {
   color: var(--white);
 }
 
-.overview-banner img {
+.banner-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(1.12) contrast(1.05);
 }
 
 .overview-banner-shade {
@@ -666,9 +758,9 @@ body.menu-open .site-header {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(12, 28, 56, 0.84) 0%,
-    rgba(12, 28, 56, 0.52) 48%,
-    rgba(12, 28, 56, 0.12) 100%
+    rgba(11, 35, 74, 0.86) 0%,
+    rgba(13, 46, 96, 0.56) 48%,
+    rgba(13, 46, 96, 0.14) 100%
   );
 }
 
@@ -680,9 +772,11 @@ body.menu-open .site-header {
 }
 
 .banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
   font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .overview-banner-content h3 {
@@ -776,14 +870,33 @@ body.menu-open .site-header {
 }
 
 .vision-photo {
+  position: relative;
   overflow: hidden;
-  background: var(--gray-tile);
+  background: var(--dark-banner);
 }
 
-.vision-photo img {
+.split-video {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.video-badge {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  background: rgba(24, 27, 34, 0.82);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 /* ==========================================================================
@@ -971,7 +1084,7 @@ body.menu-open .site-header {
 }
 
 /* ==========================================================================
-   5. Contact — Signature Vibrant Orange Block with Chamfered Worker Frame
+   5. Contact — Signature Vibrant Orange Block with Chamfered Live Video Frame
       (Matches Image 3 Middle Banner 1:1)
    ========================================================================== */
 .contact {
@@ -1057,7 +1170,7 @@ body.menu-open .site-header {
   margin-top: 28px;
 }
 
-/* Black-backed diagonal-chamfered frame around the construction worker photo */
+/* Black-backed diagonal-chamfered frame around the live construction video */
 .orange-cta-visual {
   position: relative;
 }
@@ -1069,10 +1182,11 @@ body.menu-open .site-header {
   aspect-ratio: 16 / 10;
 }
 
-.chamfer-frame img {
+.cta-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(1.1) contrast(1.06);
   /* Diagonal corner cutouts revealing the solid black frame behind, matching Image 3 */
   clip-path: polygon(16% 0%, 84% 0%, 100% 34%, 100% 100%, 16% 100%, 16% 62%, 0% 28%, 0% 0%);
 }
@@ -1723,8 +1837,16 @@ fieldset.field {
   html {
     scroll-behavior: auto;
   }
-  .inquiry-dialog[open] {
+  .hero h1 span,
+  .hero-description,
+  .hero-actions,
+  .inquiry-dialog[open],
+  .pulse-dot {
     animation: none;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
   }
   * {
     transition-duration: 0.01ms !important;
