@@ -1,42 +1,15 @@
 /*
-  한진개발 (Hanjin Development) — Naver MaruBuri (마루 부리) Serif Edition
-  Uses self-hosted Naver MaruBuri (Regular 400 / SemiBold 600 / Bold 700-800)
-  for a classic, authoritative, and trustworthy Korean B2B impression.
+  한진개발 (Hanjin Development) — Naver 나눔명조옛한글 (NanumMyeongjoYetHangul) Edition
+  Uses self-hosted & Naver CDN NanumMyeongjoYetHangul for classic, traditional Korean serif trust.
 */
 @font-face {
-  font-family: 'MaruBuri';
+  font-family: 'NanumMyeongjoYetHangul';
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
   src:
-    url('assets/fonts/MaruBuri-Regular.woff2') format('woff2'),
-    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'MaruBuri';
-  font-weight: 600;
-  font-display: swap;
-  src:
-    url('assets/fonts/MaruBuri-SemiBold.woff2') format('woff2'),
-    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-SemiBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'MaruBuri';
-  font-weight: 700;
-  font-display: swap;
-  src:
-    url('assets/fonts/MaruBuri-Bold.woff2') format('woff2'),
-    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'MaruBuri';
-  font-weight: 800;
-  font-display: swap;
-  src:
-    url('assets/fonts/MaruBuri-Bold.woff2') format('woff2'),
-    url('https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Bold.woff2') format('woff2');
+    url('assets/fonts/NanumMyeongjo-YetHangul.woff2') format('woff2'),
+    url('https://hangeul.pstatic.net/hangeul_static/webfont/NanumMyeongjoYetHangul/NanumMyeongjo-YetHangul.woff2') format('woff2');
 }
 
 :root {
@@ -57,7 +30,7 @@
   --gray-tile-hover: #e9edf3;
   --border: #e4e8ee;
   --border-strong: #cfd6df;
-  --font: 'MaruBuri', 'AppleMyungjo', 'Batang', serif;
+  --font: 'NanumMyeongjoYetHangul', 'Nanum Myeongjo', 'AppleMyungjo', 'Batang', serif;
   --container: 1200px;
   --gutter: 32px;
   --header-h: 80px;
